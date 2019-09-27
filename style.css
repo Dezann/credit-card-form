@@ -2,12 +2,69 @@ html,body{
     height: 100%;
     width: 100%;
     display:flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 .card-wrapper{
-    background-color:blue;
-    width: 30vw;
-    height: 30vh;
+    cursor: pointer;
+    background-color:rgb(122, 122, 245);
+    font-size: 2vh;
+    min-width: 300px;
+    min-height: 100px;
+    width: 20vw;
+    height: 16vh;
+    border-radius: 1em;
+    box-shadow: 1px 4px 5px 0px;
+    padding: 30px;
+    margin-bottom: 4vh;
+    display:flex;
+    flex-direction: column;   
+}
+
+#card-number{
+    font-size: 3vh;
+    margin: 0; 
+}
+
+.heading{
+    font-size: 1.4vh;
+}
+
+.bottom-card-wrapper{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2vh;
+}
+
+.card-input-wrapper .field-container:first-of-type {
+    grid-area: name;
+}
+
+.card-input-wrapper .field-container:nth-of-type(2) {
+    grid-area: number;
+}
+
+.card-input-wrapper .field-container:nth-of-type(3) {
+    grid-area: expiration;
+}
+
+.card-input-wrapper .field-container:nth-of-type(4) {
+    grid-area: security;
+}
+
+.card-input-wrapper{
+    display: grid;
+    grid-column-gap: 1em;
+    grid-template-columns: auto auto;
+    grid-template-rows: 100px 100px 100px;
+    grid-template-areas: "name name""number number""expiration security";
+}
+
+input{
+    width:100%;
+    height: 4vh;
 }
