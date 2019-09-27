@@ -9,18 +9,22 @@ html,body{
 
 .card-wrapper{
     cursor: pointer;
-    background-color:rgb(122, 122, 245);
-    font-size: 2vh;
-    min-width: 300px;
-    min-height: 100px;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 1px 1px black;
+    background-color:rgb(3,169,243);
+    border: solid 1px grey;
+    font-size: 1.5vh;
+    min-width: 450px;
+    min-height: 200px;
     width: 20vw;
     height: 16vh;
     border-radius: 1em;
-    box-shadow: 1px 4px 5px 0px;
-    padding: 30px;
+    box-shadow: 1px 4px 5px grey;
+    padding: 20px;
     margin-bottom: 4vh;
     display:flex;
-    flex-direction: column;   
+    flex-direction: column; 
+    justify-content: flex-end;  
 }
 
 #card-number{
@@ -29,7 +33,7 @@ html,body{
 }
 
 .heading{
-    font-size: 1.4vh;
+    font-size: 1.5vh;
 }
 
 .bottom-card-wrapper{
@@ -58,13 +62,16 @@ html,body{
 
 .card-input-wrapper{
     display: grid;
-    grid-column-gap: 1em;
+    grid-column-gap: 3em;
+    grid-row-gap: 0.5em;
     grid-template-columns: auto auto;
     grid-template-rows: 100px 100px 100px;
     grid-template-areas: "name name""number number""expiration security";
 }
 
 input{
+    padding: 1vh;
     width:100%;
-    height: 4vh;
+    height: 3vh;
+    border: solid 2px rgb(77, 77, 77)9, 59, 59);
 }
