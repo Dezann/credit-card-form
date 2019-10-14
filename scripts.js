@@ -10,15 +10,15 @@ const securityCodeInput = document.querySelector("#security-code-input")
 
 let fieldArr = []
 
-fieldArr.push({ input: nameInput, field: nameField })
-fieldArr.push({ input: numberInput, field: numberField })
-fieldArr.push({ input: expirationInput, field: expirationField })
-fieldArr.push({ input: securityCodeInput, field: securityCodeField })
+fieldArr.push({ input: nameInput, field: nameField, placeholder: "John Paul" })
+fieldArr.push({ input: numberInput, field: numberField, placeholder: "1234 5678 9234 1232" })
+fieldArr.push({ input: expirationInput, field: expirationField, placeholder: "14/23" })
+fieldArr.push({ input: securityCodeInput, field: securityCodeField, placeholder: "2233" })
 
 fieldArr.forEach(el => {
     el.input.addEventListener('input', () => {
         if (el.input.value.length == 0) {
-            el.field.innerHTML = 'John Paul';
+            el.field.innerHTML = el.placeholder || "";
         } else {
             el.field.innerHTML = el.input.value;
         }
