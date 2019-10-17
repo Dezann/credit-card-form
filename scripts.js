@@ -32,16 +32,20 @@ let addSpaces = (input) => {
 let validateNumberInput = (input) => {
     console.log(typeof (input))
     console.log(input)
-    console.log(/^[0-9]$/.test(input));
-    if (/^[0-9]$/.test(input)) {
+    console.log(/^[0-9]+$/.test(input));
+    if (/^[0-9]+$/.test(input)) {
         return true;
     }
     return false;
 }
 
-console.log(validateNumberInput("123 123d"))
-console.log(validateNumberInput("123 123"))
-console.log(validateNumberInput("abc"))
+let disableSpaces = (() => {  //Immediately-invoked Function Expressions (IIFE)
+    numberInput.addEventListener("keypress", e => {
+        if (e.keyCode === 32) {
+            event.preventDefault()
+        }
+    })
+})()
 
 let addSlash = (input) => {
     let result = []
@@ -53,6 +57,12 @@ let addSlash = (input) => {
     }
     return result.join("")
 }
+
+let changeNetworkIcon = (() => {
+    let paymentNetwork = document.querySelector("network-img")
+    let firstNumber = numberField.innerHTML.substring(0, 1)
+    //TODO SWITCH
+})()
 
 fieldArr.forEach(el => {
     el.input.addEventListener('input', () => {
