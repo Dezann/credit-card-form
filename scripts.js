@@ -19,10 +19,8 @@ fieldArr.push({ name: "securityCodeInput", input: securityCodeInput, field: secu
 let addSpaces = (input) => {
     let result = []
     for (let i = 0; i < input.length; i++) {
-        console.log(i % 4)
         if (i % 4 === 0) {
             result.push(' ')
-            console.log("tests")
         }
         result.push(input[i])
     }
@@ -30,9 +28,6 @@ let addSpaces = (input) => {
 }
 
 let validateNumberInput = (input) => {
-    console.log(typeof (input))
-    console.log(input)
-    console.log(/^[0-9]+$/.test(input));
     if (/^[0-9]+$/.test(input)) {
         return true;
     }
@@ -59,9 +54,16 @@ let addSlash = (input) => {
 }
 
 let changeNetworkIcon = (() => {
-    let paymentNetwork = document.querySelector("network-img")
-    let firstNumber = numberField.innerHTML.substring(0, 1)
-    //TODO SWITCH
+    let paymentNetwork = document.querySelector("#network-img")
+    numberInput.addEventListener("input", e => {
+        let firstNumber = numberInput.value.substring(0, 1)
+        if (firstNumber < 5) {
+            paymentNetwork.src = "mastercard.svg"
+        } else {
+            paymentNetwork.src = "visa.svg"
+        }
+    })
+
 })()
 
 fieldArr.forEach(el => {

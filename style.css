@@ -13,8 +13,9 @@ html,body{
     padding-bottom: 10px;
 }
 
-.network-img{
-    height: 7vh;
+#network-img{
+    height: 10vh;
+    width: 10vw;
     position: absolute;
     align-self: flex-end;
 }
