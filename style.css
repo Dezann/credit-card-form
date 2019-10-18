@@ -14,31 +14,53 @@ html,body{
 }
 
 #network-img{
-    height: 10vh;
-    width: 10vw;
+    height: 8vh;
+    width: 8vw;
     position: absolute;
     align-self: flex-end;
 }
 
 .card-wrapper{
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    position: relative;
+    width: calc(1.56 * 250px);
+    height: 250px;
+    margin-bottom: 10vh;
+}
+
+.card-wrapper-flip{
+    transform: rotateY(180deg);
+}
+
+.card-wrapper-unflip{
+    transform: rotateY(-180deg);
+}
+
+.card-front, .card-back{
     cursor: pointer;
     color: rgb(255, 255, 255);
     text-shadow: 0 1px 1px black;
+    position: absolute;
     /* background-color:rgb(3,169,243); */
     background: rgb(125,125,125);
     background: linear-gradient(0deg, rgba(125,125,125,1) 0%, rgba(103,102,102,1) 30%, rgba(55,55,55,1) 100%);
     border: solid 1px grey;
     font-size: 1.5vh;
-    width: calc(1.56 * 250px);
-    height: 250px;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /*front is visible and back is not*/
     border-radius: 14px;
     box-shadow: 1px 4px 5px grey;
     padding: 20px;
-    margin-bottom: 4vh;
     display:flex;
     flex-direction: column; 
     justify-content: space-between;
     align-items: center;  
+}
+
+.card-back{
+    transform: rotateY(180deg);
 }
 
 #card-number{

@@ -9,19 +9,27 @@
 </head>
 
 <body>
-    <div class="card-wrapper">
-        <img id="network-img" src="mastercard.svg">
-        <div class="card-container">
-            <p id="card-number">1234 5678 9234 1232</p>
-        </div>
-        <div class="bottom-card-wrapper">
+    <div class="card-wrapper" onclick=flip()>
+        <div class="card-front">
+            <img id="network-img" src="mastercard.svg">
             <div class="card-container">
-                <p class="heading">cardholder name</p>
-                <p id="name" placeholder="John Paul">John Paul</p>
+                <p id="card-number">1234 5678 9234 1232</p>
             </div>
+            <div class="bottom-card-wrapper">
+                <div class="card-container">
+                    <p class="heading">cardholder name</p>
+                    <p id="name" placeholder="John Paul">John Paul</p>
+                </div>
+                <div class="card-container">
+                    <p class="heading">expiration</p>
+                    <p id="expiration">14/23</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-back">
             <div class="card-container">
-                <p class="heading">expiration</p>
-                <p id="expiration">14/23</p>
+                <p class="heading">security code</p>
+                <p id="security-code">2137</p>
             </div>
         </div>
     </div>

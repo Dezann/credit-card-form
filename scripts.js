@@ -8,13 +8,36 @@ const numberInput = document.querySelector("#number-input")
 const expirationInput = document.querySelector("#expiration-input")
 const securityCodeInput = document.querySelector("#security-code-input")
 
-let fieldArr = []
+let fieldArr = [
+    {
+        name: "nameInput",
+        input: nameInput,
+        field: nameField,
+        placeholder: "John Paul"
+    },
+    {
+        name: "numberInput",
+        input: numberInput,
+        field: numberField,
+        placeholder: "1234 5678 9234 1232"
+    },
+    {
+        name: "expirationInput",
+        input: expirationInput,
+        field: expirationField,
+        placeholder: "14/23"
+    },
+    {
+        name: "securityCodeInput",
+        input: securityCodeInput,
+        field: securityCodeField,
+        placeholder: "2233"
+    },
+]
 
-fieldArr.push({ name: "nameInput", input: nameInput, field: nameField, placeholder: "John Paul" })
-fieldArr.push({ name: "numberInput", input: numberInput, field: numberField, placeholder: "1234 5678 9234 1232" })
-fieldArr.push({ name: "expirationInput", input: expirationInput, field: expirationField, placeholder: "14/23" })
-fieldArr.push({ name: "securityCodeInput", input: securityCodeInput, field: securityCodeField, placeholder: "2233" })
-
+let flip = () => {
+    document.querySelector(".card-wrapper").classList.toggle("card-wrapper-flip")
+}
 
 let addSpaces = (input) => {
     let result = []
