@@ -33,17 +33,11 @@ html,body{
     transform: rotateY(180deg);
 }
 
-.card-wrapper-unflip{
-    transform: rotateY(-180deg);
-}
-
 .card-front, .card-back{
     cursor: pointer;
     color: rgb(255, 255, 255);
     text-shadow: 0 1px 1px black;
     position: absolute;
-    /* background-color:rgb(3,169,243); */
-    background: rgb(125,125,125);
     background: linear-gradient(0deg, rgba(125,125,125,1) 0%, rgba(103,102,102,1) 30%, rgba(55,55,55,1) 100%);
     border: solid 1px grey;
     font-size: 1.5vh;
@@ -51,23 +45,26 @@ html,body{
     height: 100%;
     backface-visibility: hidden; /*front is visible and back is not*/
     border-radius: 14px;
-    box-shadow: 1px 4px 5px grey;
-    padding: 20px;
-    display:flex;
-    flex-direction: column; 
-    justify-content: space-between;
-    align-items: center;  
+    box-shadow: 1px 4px 5px grey; 
 }
 
 .card-back{
     transform: rotateY(180deg);
 }
 
+.spacing{
+    display:flex;
+    flex-direction: column; 
+    justify-content: space-between;
+    align-items: center; 
+    margin: 20px;
+}
+
 #card-number{
     font-size: 2.6em;
     letter-spacing: 1px;
     margin: 0; 
-    margin-bottom: 2vh;
+    margin-bottom: 1vh;
     margin-top: 110px;
     text-align: center;
 }
@@ -75,7 +72,7 @@ html,body{
 #name, #expiration {
     font-size: 1.7em;
     margin:0;
-    margin-top: 1vh;
+    margin-top: 0.4vh;
 }
 
 .heading{
@@ -110,9 +107,9 @@ html,body{
 .card-input-wrapper{
     display: grid;
     grid-column-gap: 3em;
-    grid-row-gap: 0.5em;
+    grid-row-gap: 4vh;
     grid-template-columns: auto auto;
-    grid-template-rows: 100px 100px 100px;
+    grid-template-rows: 60px 60px 60px;
     grid-template-areas: "name name""number number""expiration security";
 }
 
