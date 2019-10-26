@@ -35,6 +35,8 @@ let fieldArr = [
     },
 ]
 
+let numberInputPrevValue = fieldArr[1].input.value
+
 let flip = () => {
     document.querySelector(".card-wrapper").classList.toggle("card-wrapper-flip")
 }
@@ -50,13 +52,6 @@ let addSpaces = (input) => {
     return result.join("")
 }
 
-let validateNumberInput = (input) => {
-    if (/^[0-9]+$/.test(input)) {
-        return true;
-    }
-    return false;
-}
-
 let disableSpaces = (() => {  //Immediately-invoked Function Expressions (IIFE)
     numberInput.addEventListener("keypress", e => {
         if (e.keyCode === 32) {
@@ -64,6 +59,13 @@ let disableSpaces = (() => {  //Immediately-invoked Function Expressions (IIFE)
         }
     })
 })()
+
+let isNumberInputValid = (e) => {
+    console.log(e.target.value)
+    console.log(/^[0-9]*$/.test(e.target.value));
+    return /^[0-9]*$/.test(e.target.value)
+}
+
 
 let addSlash = (input) => {
     let result = []
@@ -90,17 +92,25 @@ let changeNetworkIcon = (() => {
 })()
 
 fieldArr.forEach(el => {
-    el.input.addEventListener('input', () => {
+    el.input.addEventListener('input', (e) => {
         if (el.input.value.length === 0) {
             el.field.innerHTML = el.placeholder || "";
         } else {
-            if (el.name === "numberInput" && validateNumberInput(el.input.value)) {
-                el.field.innerHTML = addSpaces(el.input.value)
+            if (el.name === "numberInput") {
+                if (isNumberInputValid(e)) {
+                    numberInputPrevValue = el.input.value
+                    el.field.innerHTML = addSpaces(el.input.value)
+                } else {
+                    el.field.innerHTML = addSpaces(numberInputPrevValue)
+                    return false;
+                }
             }
             else if (el.name === "expirationInput") {
                 el.field.innerHTML = addSlash(el.input.value)
             }
-            else { el.field.innerHTML = el.input.value; }
+            else {
+                el.field.innerHTML = el.input.value;
+            }
         }
     })
 })
